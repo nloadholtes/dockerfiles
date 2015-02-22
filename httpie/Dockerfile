@@ -1,5 +1,5 @@
 FROM python:2.7.8
-MAINTAINER Jessica Frazelle <jess@docker.com>
+MAINTAINER Nick Loadholtes <nick@ironboundsoftware.com>
 
 RUN pip install httpie
 
