@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:2.7.9-wheezy
 MAINTAINER Nick Loadholtes <nick@ironboundsoftware.com>
 
 RUN apt-get update && apt-get install -y \
