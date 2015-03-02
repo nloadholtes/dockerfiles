@@ -1,5 +1,4 @@
 docker run -it \
-    -v $HOME/.irssi:/home/user/.irssi \ # mounts irssi config in container
-    --read-only \ # cool new feature in 1.5
+    -v $HOME/.irssi:/home/user/.irssi \
     --name irssi \
     irssi
