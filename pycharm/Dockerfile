@@ -1,7 +1,7 @@
 #
 # Based on https://registry.hub.docker.com/u/dimitrisjim/pycharm_ultimate/dockerfile/
 #
-FROM ubuntu:14.04
+FROM dimitrisjim/pycharm_ultimate
 MAINTAINER Nick Loadholtes <nick@ironboundsoftware.com>
 
 # Set some ENV variables.

@@ -10,7 +10,7 @@ SETTINGS=$PROJECTS/.PyCharm40
 PY_LIB=$PROJECTS/.Py_lib
 
 # Change image name to match the image built.
-IMAGE_NAME=dimitrisjim/pycharm_ultimate
+IMAGE_NAME=pycharm
 
 # Create directories if they don't exist.
 if [ ! -d "$SETTINGS" ]; then
