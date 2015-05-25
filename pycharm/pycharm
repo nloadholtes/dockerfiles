@@ -1,0 +1,45 @@
+#!/bin/sh
+# Runs pycharm Ultimate with the standard python libs.
+# Creates the directories needed to retain settings and projects and 
+# python libraries  in order for them to persist between sessions.
+set -xe
+
+USER=dev
+PROJECTS=~/PycharmProjects
+SETTINGS=$PROJECTS/.PyCharm40
+PY_LIB=$PROJECTS/.Py_lib
+
+# Change image name to match the image built.
+IMAGE_NAME=dimitrisjim/pycharm_ultimate
+
+# Create directories if they don't exist.
+if [ ! -d "$SETTINGS" ]; then
+ mkdir -p $SETTINGS 
+ mkdir $SETTINGS/config $SETTINGS/system
+ # Required in order for docker container to be able to write to host file system.
+ chmod -R ug+rwx $SETTINGS/config $SETTINGS/system 
+fi
+
+# Populate python 2.7.9 and 3.4.3 libraries in order to be able to mount
+# these directories to our container and make libraries installed persistent.
+if [ ! -d "$PY_LIB" ]; then
+ mkdir -p $PY_LIB
+ docker run -it -d --name "temp" $IMAGE_NAME
+ docker cp temp:/usr/local/lib $PY_LIB/ 
+ docker rm -v temp
+ chmod -R ug+rwx $PY_LIB/
+fi
+
+# Accept all local hosts.
+#xhost +local:*
+
+# Run docker and mount project, settings and library dirs.
+xhost - && docker run -ti --rm \
+ -e DISPLAY \
+ -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+ -v $HOME/.Xauthority:/home/$USER/.Xauthority \
+ -v $PROJECTS:/home/$USER/PycharmProjects \
+ -v $SETTINGS:/home/$USER/.PyCharm40 \
+ -v $PY_LIB/lib:/usr/local/lib \
+ -u $USER \
+ $IMAGE_NAME
