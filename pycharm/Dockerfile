@@ -28,8 +28,8 @@ COPY py_setup.sh $IDE_PATH
 RUN ./py_setup.sh
 
 # Get pycharm tarball.
-RUN wget http://download.jetbrains.com/python/pycharm-professional-4.0.6.tar.gz \
- && tar -xf pycharm-professional-4.0.6.tar.gz \
+RUN wget http://download.jetbrains.com/python/pycharm-professional-4.5.1.tar.gz \
+ && tar -xf pycharm-professional-4.5.1.tar.gz \
  && rm -rf *.tar.gz \
  && mv pycharm* pycharm
 
