@@ -9,10 +9,10 @@ ENV IDE_PATH=/home/ \
  HOME=/home/dev/
 
 # Add user dev so the container doesn't run as root.
-RUN useradd dev \
- && echo "dev:dev" | chpasswd \
- && usermod -s /bin/bash dev \
- && usermod -aG sudo dev
+#RUN adduser dev \
+# && echo "dev:dev" | chpasswd \
+# && usermod -s /bin/bash dev \
+# && usermod -aG sudo dev
 
 RUN apt-get -yqq update && apt-get -yqq install \
  wget \
