@@ -8,7 +8,7 @@ WINEDLLOVERRIDES="mshtml,mscoree=" wineboot -u
 AMZ_DIR="/root/.wine/drive_c/users/root/Local Settings/Application Data/Amazon Music"
 if [ -d "$AMZ_DIR" ]; then
     echo "Already installed, running"
-    wine $AMZ_DIR/Amazon\ Music.exe
+    wine "$AMZ_DIR/Amazon Music.exe"
 else
     echo "First time, installing"
     wine /usr/src/AmazonMusicInstaller.exe 
