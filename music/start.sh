@@ -5,8 +5,8 @@ echo "Wine version"
 wine --version
 
 WINEDLLOVERRIDES="mshtml,mscoree=" wineboot -u
-AMZ_DIR="/root/.wine/drive_c/users/root/Local\ Settings/Application\ Data/Amazon\ Music"
-if [ -d $AMZ_DIR ]; then
+AMZ_DIR="/root/.wine/drive_c/users/root/Local Settings/Application Data/Amazon Music"
+if [ -d "$AMZ_DIR" ]; then
     echo "Already installed, running"
     wine $AMZ_DIR/Amazon\ Music.exe
 else
