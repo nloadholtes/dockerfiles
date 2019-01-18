@@ -15,6 +15,7 @@ FROM alpine:latest
 
 RUN apk add --no-cache \
 	ca-certificates \
+	tzdata \
 	python \
 	py2-pip \
 	weechat \
@@ -22,6 +23,8 @@ RUN apk add --no-cache \
 	weechat-python
 
 RUN pip install websocket-client
+RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
+RUN echo "America/New_York" > /etc/timezone
 
 ENV HOME /home/user
 
