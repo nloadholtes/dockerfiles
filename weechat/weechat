@@ -1,5 +1,0 @@
-docker run -it \
-	--rm \
-	-v $HOME/.weechat:/home/user/.weechat \
-	--name weechat \
-	jess/weechat
