@@ -35,5 +35,6 @@ RUN adduser -S user -h $HOME \
 
 WORKDIR $HOME
 USER user
+ENV TERM=xterm-256color
 
 ENTRYPOINT [ "weechat" ]
