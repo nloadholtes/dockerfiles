@@ -12,6 +12,7 @@
 # 			wee-slack
 #
 FROM alpine:latest
+LABEL maintainer "Nick Loadholtes <nick@ironboundsoftware.com>"
 
 RUN apk add --no-cache \
 	ca-certificates \
