@@ -1,0 +1,1 @@
+docker run -ti -v /etc/localtime:/etc/localtime:ro -v "${HOME}/.config/toot:/home/user/.config/toot" toot "$@"
